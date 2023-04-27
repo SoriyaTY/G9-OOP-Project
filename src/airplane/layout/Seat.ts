@@ -5,7 +5,7 @@ enum SeatType{
     First_Class
 }
 
-class Seat {
+export class Seat {
     constructor(public seatNumber:number, public seatType:SeatType,public price: number){
         this.seatNumber = seatNumber;
         this.seatType = seatType;
