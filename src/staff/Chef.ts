@@ -5,4 +5,5 @@ export class Chef extends Employee{
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    
 }
