@@ -8,11 +8,22 @@ var Airport = /** @class */ (function () {
         this.airlines = [];
         this.gates = [];
         this.airplanes = [];
-        this.booking = [];
+        this.bookings = [];
         this.chef = [];
         this.airportName = airportName;
         this.address = address;
     }
+    Airport.prototype.addBooking = function (booking) {
+        this.bookings.push(booking);
+    };
+    Airport.prototype.getBooking = function (bookingRefNum) {
+        for (var _i = 0, _a = this.bookings; _i < _a.length; _i++) {
+            var booking = _a[_i];
+            if (bookingRefNum == booking.bookingReferenceNumber) {
+                return booking;
+            }
+        }
+    };
     return Airport;
 }());
 exports.Airport = Airport;

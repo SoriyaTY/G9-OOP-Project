@@ -6,4 +6,5 @@ export class Layout{
         this.rowSeat = rowSeat;
         this.columnSeat = columnSeat;
     }
+
 }

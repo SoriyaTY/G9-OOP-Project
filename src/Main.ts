@@ -52,10 +52,21 @@ let route01 = new Route('PP', 'US');
 let gate1 = new Gate(12);
 let gate2 = new Gate(10);
 
-
 //Create new flights
 let flight01 = new Flight(airplane01, route01, 'AY6404', DepartDate, DapartTime, ArrDate, ArrTime);
 
 //Create Booking
 let booking01 = new Booking('DGG2743', passenger01,flight01 , gate1);
-console.log(booking01);
+let booking02 = new Booking('DGG2678', passenger02,flight01 , gate2);
+
+//Add booking into flight
+flight01.addBooking(booking01);
+flight01.addBooking(booking02)
+
+//Add booking into airport 
+airport.addBooking(booking01);
+airport.addBooking(booking02);
+
+//get Information Of passenger 
+airport.getPassengerInfo('DGG2743');
+

@@ -44,4 +44,13 @@ var gate2 = new Gate_1.Gate(10);
 var flight01 = new Flight_1.Flight(airplane01, route01, 'AY6404', DepartDate, DapartTime, ArrDate, ArrTime);
 //Create Booking
 var booking01 = new Booking_1.Booking('DGG2743', passenger01, flight01, gate1);
-console.log(booking01);
+var booking02 = new Booking_1.Booking('DGG2678', passenger02, flight01, gate2);
+// console.log(booking01);
+//Add booking
+flight01.addBooking(booking01);
+flight01.addBooking(booking02);
+airport.addBooking(booking01);
+airport.addBooking(booking02);
+//get Information Of passenger 
+// console.log(flight01)
+console.log(airport.getBooking('DGG2743'));

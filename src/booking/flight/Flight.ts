@@ -15,6 +15,7 @@ export class Flight{
         protected arriveDate: DateFlight, 
         protected arriveTime: Time) {}
 
+        //Add booking into flight
         addBooking(newBooking:Booking){
             this.bookings.push(newBooking);
         }
