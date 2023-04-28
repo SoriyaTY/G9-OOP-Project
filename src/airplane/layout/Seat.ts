@@ -1,4 +1,4 @@
-enum SeatType{
+export enum SeatType{
     Economy_Classic,
     Economy_Flex,
     Business_Class,
@@ -7,8 +7,5 @@ enum SeatType{
 
 export class Seat {
     constructor(public seatNumber:number, public seatType:SeatType,public price: number){
-        this.seatNumber = seatNumber;
-        this.seatType = seatType;
-        this.price = price;
     }
 }

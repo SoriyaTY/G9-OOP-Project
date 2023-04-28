@@ -2,10 +2,17 @@ import { Flight } from "./flight/Flight";
 import { Passenger } from "./passenger/Passenger";
 import { Seat } from "../airplane/layout/Seat";
 import { Gate } from "../gate/Gate";
+import { DateFlight } from "./flight/Date";
+import { Time } from "./flight/Time";
 export class Booking{
-
-    constructor( firstName: Passenger, lastName: Passenger, public departDistination: string, public arriveDistination: string, flightNumber: Flight, departDate: Flight,departTime: Flight,arriveDate: Flight,arriveTime: Flight,  seatNumber: Seat, gateNumber: Gate){
-    }
-
+    constructor(public bookingReferenceNumber: string, 
+        public passenger : Passenger,
+        public flight: Flight, 
+        public gate:Gate){}
+    
 }
+
+
+
+
 

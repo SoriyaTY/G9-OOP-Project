@@ -1,20 +1,25 @@
 
 import { Time } from "./Time";
+import { Route } from "./Route";
 import { DateFlight } from "./Date";
+import { Airplane } from "../../airplane/Airplane";
+import { Booking } from "../Booking";
 export class Flight{
-    constructor(public flightNumber:number, 
-        public airplaneNumber:string, 
+    public bookings: Booking[]=[]
+    constructor(
+        public airplane: Airplane,
+        public destination: Route,
+        public flightNumber:string, 
         protected departDate: DateFlight, 
         protected departTime: Time, 
         protected arriveDate: DateFlight, 
-        protected arriveTime: Time) {
-        this.flightNumber = flightNumber;
-        this.airplaneNumber = airplaneNumber;
-        this.departDate = departDate;
-        this.departTime = departTime;
-        this.arriveDate = arriveDate;
-        this.arriveTime = arriveTime;
+        protected arriveTime: Time) {}
 
-    }
+        addBooking(newBooking:Booking){
+            this.bookings.push(newBooking);
+        }
+
 }
+    
+
 
