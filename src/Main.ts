@@ -3,8 +3,7 @@ import { Passenger,MealType } from "./booking/passenger/Passenger";
 import { Airport } from "./Airport";
 import { Flight } from "./booking/flight/Flight";
 import { Airplane } from "./airplane/Airplane";
-import { DateFlight } from "./booking/flight/Date";
-import { Time } from "./booking/flight/Time";
+import { Datetime } from "./booking/flight/Datetime";
 import { Route } from "./booking/flight/Route";
 import { Seat,SeatType } from "./airplane/layout/Seat";
 import { Gate } from "./gate/Gate";
@@ -38,12 +37,12 @@ let passenger02 = new Passenger('DDD','LLL', 24 , '8320832048', 'lii@gamail.com'
 //SetMealType
 passenger01.setEatType(MealType.Kosher);
 passenger02.setEatType(MealType.dairy_free);
+passenger02.setEatType(MealType.Kosher);
+passenger02.setEatType(MealType.dairy_free);
 
 //Depart&Arrive
-let DepartDate = new DateFlight('Mon 12', 'Jan', 2022)
-let DapartTime = new Time(30, 2)
-let ArrDate = new DateFlight('Wed15', 'Jan', 2022)
-let ArrTime = new Time(10, 3);
+let departDate = new Datetime(2,30,'Mon 12','May',2023);
+let arriveDate = new Datetime(1,10,'Tues 13','May',2023);
 
 //Create Route
 let route01 = new Route('PP', 'US');
@@ -53,7 +52,7 @@ let gate1 = new Gate(12);
 let gate2 = new Gate(10);
 
 //Create new flights
-let flight01 = new Flight(airplane01, route01, 'AY6404', DepartDate, DapartTime, ArrDate, ArrTime);
+let flight01 = new Flight(airplane01, route01, 'AY6404', departDate, arriveDate);
 
 //Create Booking
 let booking01 = new Booking('DGG2743', passenger01,flight01 , gate1);
