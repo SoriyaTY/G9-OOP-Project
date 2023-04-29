@@ -1,8 +1,7 @@
 import { Gate } from "./gate/Gate";
 import { Airline } from "./Airline";
-import { Booking } from "./booking/Booking";
+import { Booking, BookingType } from "./booking/Booking";
 import { Airplane } from "./airplane/Airplane";
-import { Chef } from "./staff/Chef";
 import { Employee } from "./staff/Employee";
 export class Airport{
     
@@ -74,5 +73,17 @@ export class Airport{
             }
         });
         return test;
+    }
+    //given flightNumber that find passenger return ticket
+    passengerReturnTicket(flightNumber: string){
+        let countPassengerTicket =0;
+        for(let i=0; i<this.bookings.length; i++){
+           if(flightNumber == this.bookings[i].flight.flightNumber){
+                if(this.bookings[i].bookingType==BookingType.returnBooking){
+                     countPassengerTicket +=1
+                }  
+           }
+        }
+        return countPassengerTicket ;
     }
 }

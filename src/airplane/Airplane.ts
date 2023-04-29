@@ -6,6 +6,7 @@ export class Airplane{
         this.airplaneName = airplaneName;
         this.airplaneNumber = airplaneNumber;
     }
+
     setLayout(layout: Layout){
         this.layouts.push(layout);
     }
