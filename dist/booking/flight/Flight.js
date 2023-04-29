@@ -2,18 +2,22 @@
 exports.__esModule = true;
 exports.Flight = void 0;
 var Flight = /** @class */ (function () {
-    function Flight(airplane, destination, flightNumber, departDate, departTime, arriveDate, arriveTime) {
+    function Flight(airplane, destination, flightNumber, departDate, arriveDate) {
         this.airplane = airplane;
         this.destination = destination;
         this.flightNumber = flightNumber;
         this.departDate = departDate;
-        this.departTime = departTime;
         this.arriveDate = arriveDate;
-        this.arriveTime = arriveTime;
         this.bookings = [];
+        this.pilots = [];
     }
+    //Add booking into flight
     Flight.prototype.addBooking = function (newBooking) {
         this.bookings.push(newBooking);
+    };
+    //Add Pilot into flight
+    Flight.prototype.addPilot = function (pilot) {
+        this.pilots.push(pilot);
     };
     return Flight;
 }());

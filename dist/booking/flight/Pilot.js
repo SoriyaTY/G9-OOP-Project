@@ -21,10 +21,26 @@ var Pilot = /** @class */ (function (_super) {
     __extends(Pilot, _super);
     function Pilot(firstName, lastName, salary, position) {
         var _this = _super.call(this, firstName, lastName, salary, position) || this;
+        _this.flights = [];
         _this.firstName = firstName;
         _this.lastName = lastName;
         return _this;
     }
+    //Add Flight into Pilot
+    Pilot.prototype.addFlight = function (flight) {
+        this.flights.push(flight);
+    };
+    //Get flight by date
+    Pilot.prototype.getFlight = function (date) {
+        for (var i = 0; i < this.flights.length; i++) {
+            console.log(this.flights);
+            var CountFlight = 0;
+            if (date === this.flights[i]['departDate']['day']) {
+                return 'You have ' + this.flights.length + ' flight to join.';
+            }
+        }
+        return "You don't have flight to join";
+    };
     return Pilot;
 }(Employee_1.Employee));
 exports.Pilot = Pilot;
