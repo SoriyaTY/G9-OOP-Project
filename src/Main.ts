@@ -38,9 +38,9 @@ let seat02= new Seat(2, SeatType.Business_Class, 107);
 
 
 //Create new passengers
-let passenger01 = new Passenger('LII','da',MealType.Kosher,23 , '8320832048', 'lii@gamail.com', '38597');
-let passenger02 = new Passenger('DDD','LLL', MealType.forth,24 , '8320832048', 'lii@gamail.com', '3854');
-let passenger03 = new Passenger('YUI','ooo', MealType.vegetarian,24 , '8320832048', 'lii@gamail.com', '3854');
+let passenger01 = new Passenger('Phin','Lek',MealType.Kosher,23 , '8320832048', 'phinlek@gamail.com', '38597');
+let passenger02 = new Passenger('Thana','Choeun', MealType.forth,24 , '8320832048', 'thanachoeun@gamail.com', '3854');
+let passenger03 = new Passenger('Ploy','Heng', MealType.vegetarian,24 , '8320832048', 'ployheng@gamail.com', '3854');
 
 
 //Depart&Arrive
@@ -75,8 +75,8 @@ flight01.addBooking(booking03);
 
 
 //Create Pilot
-let pilot01 = new Pilot('dfj', 'dfsd', 233, 'Pilot');
-let pilot02 = new Pilot('Dav', 'dfjs', 23345, 'Pilot');
+let pilot01 = new Pilot('Soriya', 'Ho', 1200, 'Pilot');
+let pilot02 = new Pilot('Dav', 'Thoeuun', 1200, 'Pilot');
 
 //Add pilot into flight
 flight01.addPilot(pilot01);
@@ -99,9 +99,9 @@ airport.getPassengerInfo('DGG2743');
 // I want to know which gate my plane is waiting at.
 airport.setGate(gate1);
 airport.setGate(gate2);
-console.log(airport.getGate("OH-LAP"));
+airport.getGate("OH-LAP");
 //Find flight that passenger have to join by date
-pilot02.getFlight('Mon 14');
+console.log(pilot01.getFlight('13'));
 
 //Given flightNumber to find return ticket
 airport.passengerReturnTicket('AY6404');
