@@ -16,7 +16,6 @@ export class Flight{
         addBooking(newBooking:Booking){
             this.bookings.push(newBooking);
         }
-        
 }
     
 
