@@ -19,6 +19,11 @@ export class Airport{
         this.bookings.push(booking);
     }
 
+    //set airplane into airport
+    setAirplane(airplane:Airplane){
+        this.airplanes.push(airplane);
+    }
+
     //Get full Detail of passenger by booking Reference Number
     getPassengerInfo(bookingRefNum: string){
         for(let booking of this.bookings){
@@ -41,10 +46,10 @@ export class Airport{
         return listMeal;
     }
 
+    // find out how much salary I pay all my employees.
     setEmployee(employee:Employee){
         this.employees.push(employee);
     }
-    // I want to find out how much salary I pay all my employees.
     getAllEmployeeSalary(){
         let total:number = 0;
         this.employees.forEach(element => {
@@ -53,12 +58,21 @@ export class Airport{
         return total;
     }
 
-    setAirplane(airplane:Airplane){
-        this.airplanes.push(airplane);
-    }
 
+    // Get which gate my plane is waiting at.
     setGate(gate:Gate){
         this.gates.push(gate);
     }
-    
+    getGate(planeNumber:string){
+        let index:number = 0;
+        let test = 'It is not your Flight Today.'
+        this.airplanes.forEach(plane => {
+            index += 1;
+            if(plane['airplaneNumber'] == planeNumber && 
+            this.gates[index-1]['gateNumber'] == this.bookings[index-1]['gate']['gateNumber']){
+                test = "Gate is: "+this.gates[index-1]['gateNumber'];
+            }
+        });
+        return test;
+    }
 }
