@@ -7,7 +7,7 @@ import { Datetime } from "./booking/flight/Datetime";
 import { Route } from "./booking/flight/Route";
 import { Seat,SeatType } from "./airplane/layout/Seat";
 import { Gate } from "./gate/Gate";
-import { Booking } from "./booking/Booking";
+import { Booking, BookingType } from "./booking/Booking";
 import { Layout } from "./airplane/layout/Layout";
 import { Pilot } from "./booking/flight/Pilot";
 
@@ -32,15 +32,9 @@ let seat02= new Seat(2, SeatType.Business_Class, 107);
 
 
 //Create new passengers
-let passenger01 = new Passenger('LII','da', 23 , '8320832048', 'lii@gamail.com', '38597');
-let passenger02 = new Passenger('DDD','LLL', 24 , '8320832048', 'lii@gamail.com', '3854');
-let passenger03 = new Passenger('YUI','ooo', 24 , '8320832048', 'lii@gamail.com', '3854');
-
-//SetMealType
-passenger01.setEatType(MealType.Kosher);
-passenger02.setEatType(MealType.dairy_free);
-passenger02.setEatType(MealType.Kosher);
-passenger02.setEatType(MealType.dairy_free);
+let passenger01 = new Passenger('LII','da',MealType.Halal, 23 , '8320832048', 'lii@gamail.com', '38597');
+let passenger02 = new Passenger('DDD','LLL',MealType.Kosher, 24 , '8320832048', 'lii@gamail.com', '3854');
+let passenger03 = new Passenger('YUI','ooo',MealType.Halal, 24 , '8320832048', 'lii@gamail.com', '3854');
 
 //Depart&Arrive
 let departDate01 = new Datetime(2,30,'Mon 12','May',2023);
@@ -58,27 +52,24 @@ let gate2 = new Gate(10);
 
 //Create new flights
 let flight01 = new Flight(airplane01, route01, 'AY6404', departDate01, arriveDate01);
-let flight02 = new Flight(airplane01, route01, 'AY6404', departDate03, arriveDate03);
-let flight03 = new Flight(airplane01, route01, 'AY6404', departDate03, arriveDate03);
-
+let flight02 = new Flight(airplane01, route01, 'AY6402', departDate03, arriveDate03);
+let flight03 = new Flight(airplane01, route01, 'AY6403', departDate03, arriveDate03);
 
 //Create Booking
-let booking01 = new Booking('DGG2743', passenger01,flight01 , gate1);
-let booking02 = new Booking('DGG2678', passenger02,flight02 , gate2);
-let booking03 = new Booking('E839508', passenger03, flight03, gate2);
-
+let booking01 = new Booking('DGG2743', passenger01,flight01 ,BookingType.returnBooking, gate1);
+let booking02 = new Booking('DGG2678', passenger02,flight01 ,BookingType.returnBooking, gate2);
+let booking03 = new Booking('E839508', passenger03, flight01,BookingType.returnBooking, gate2);
 
 //Add booking into flight
 flight01.addBooking(booking01);
 flight01.addBooking(booking02);
-flight02.addBooking(booking01);
-flight02.addBooking(booking02);
-flight03.addBooking(booking01);
-flight03.addBooking(booking02);
+flight01.addBooking(booking03);
+
 
 //Create Pilot
-let pilot01 = new Pilot('dfj', 'dfsd', 233, 'ghj')
-let pilot02 = new Pilot('Dav', 'dfjs', 23345, 'sdfs')
+let pilot01 = new Pilot('Din', 'Lay', 500, 'Pilot')
+let pilot02 = new Pilot('David', 'Jonh', 600, 'Pilot')
+
 //Add pilot into flight
 flight01.addPilot(pilot01)
 flight02.addPilot(pilot02);
@@ -92,12 +83,13 @@ pilot02.addFlight(flight03);
 //Add booking into airport 
 airport.addBooking(booking01);
 airport.addBooking(booking02);
+airport.addBooking(booking03);
 
 //get Information Of passenger 
 airport.getPassengerInfo('DGG2743');
 
 //Find flight that passenger have to join by date
+pilot02.getFlight('Mon 14');
 
-console.log(pilot02.getFlight('Mon 13'))
-
-
+//Given flightNumber to find return ticket
+airport.passengerReturnTicket('AY6404');

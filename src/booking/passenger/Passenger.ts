@@ -7,9 +7,10 @@ export enum MealType{
     forth = 'forth'
 }
 export class Passenger{
-    public eatTypes: MealType[]=[]
+    
     constructor (public firstName:string, 
         public lastName:string,
+        public eatTypes: MealType,
         public bagNumber: number, 
         private phoneNumber: string, 
         private email:string, 
@@ -23,8 +24,5 @@ export class Passenger{
         this.creaditCard = creaditCard;
     }
 
-    setEatType(eatType: MealType){
-        this.eatTypes.push(eatType);
-    }
 }
 

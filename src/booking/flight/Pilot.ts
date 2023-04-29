@@ -16,13 +16,15 @@ export class Pilot extends Employee{
 
     //Get flight by date
     getFlight(date: string){
+        let countFlight = 0;
         for(let i=0; i<this.flights.length; i++){
-            console.log(this.flights)
-            let CountFlight = 0;
             if(date === this.flights[i]['departDate']['day']){
-                return 'You have '+ this.flights.length +' flight to join.';
+                countFlight += 1;
             }
         }
-        return "You don't have flight to join";
+        if(countFlight!=0){
+            return 'You have '+ countFlight + ' flight to join.';
+        }
+        return countFlight;
     }
 }
